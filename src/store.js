@@ -1,8 +1,11 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import data from './data/database';
 
+import { todosReducer } from './reducers/todos_reducer';
+import { makeCounter } from './reducers/make_counter';
+
 const appReducer = combineReducers({
-  todos: todosReducer
+  todos: (state = []) => state
 });
 
 function dataLoadingMiddleware({ getState, dispatch }) {
