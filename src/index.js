@@ -13,4 +13,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-store.dispatch({ type: 'LOAD_DATA'});
+store.dispatch({ type: 'LOAD_DATA' });

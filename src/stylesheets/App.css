@@ -7,3 +7,56 @@
   padding: 5px;
   color: white;
 }
+
+.Todo-App {
+  padding-top: 20px;
+  display: inline-block;
+  text-align: left;
+}
+
+input {
+  font-size: 20px;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.error {
+  color: red;
+}
+
+li span.delete-item {
+  visibility: hidden;
+}
+
+span.delete-item a {
+  text-decoration: none;
+  color: red;
+}
+
+li:hover span.delete-item {
+  visibility: visible;
+}
+
+.Footer a {
+  padding: 2px;
+  text-decoration: none;
+}
+
+.Footer a.active {
+  font-weight: bold;
+}
+
+a:visited {
+  text-decoration: none;
+  color: blue;
+}
+
+.success {
+  color: limegreen;
+}

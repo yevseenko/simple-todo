@@ -11,6 +11,7 @@ const config = {
 
 firebase.initializeApp(config);
 
-const data = firebase.database();
+const database = firebase.database();
+const data = database.ref('/todos');
 
 export default data;

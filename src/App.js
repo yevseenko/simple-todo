@@ -1,31 +1,27 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import './stylesheets/App.css';
 
-import data from './data/database';
-
-class App extends Component {
+class App extends PureComponent {
   render() {
-    // const ref = data.ref('todos/');
-    // ref.on('value', snapshot => snapshot.val().map(item => {
-    //   const itemId = item.id,
-    //         itemText = item.text,
-    //         itemCom = item.isComplete;
-    //   console.log(itemText, itemId, itemCom);
-    // }));
-
     const { todos } = this.props;
+
+    let TodosComponent;
+
+    if (todos === undefined) {
+      TodosComponent = <div> Loading... </div>
+    } else {
+      TodosComponent = todos.map(item => <li key={item.id}>{item.text}</li>)
+    }
 
     return (
       <div className="App">
         <div className="App-header">
           <h2>Very simple todolist</h2>
         </div>
-        <div>
+        <div className="Todo-App">
           <ul>
-            <li>First item</li>
-            <li>Second item</li>
-            <li>Third item</li>
-            <li>{ todos } </li>
+            {TodosComponent}
           </ul>
         </div>
       </div>
@@ -33,4 +29,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToprops = (state) => {
+  return state.todos;
+}
+
+export default connect(mapStateToprops)(App);
