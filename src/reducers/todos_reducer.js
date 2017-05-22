@@ -7,7 +7,7 @@ export function todosReducer(state = initialState, action) {
     case 'RECEIVE_DATA':
       return {
         todos: action.payload
-      };
+      }
     default: return state;
   }
 };

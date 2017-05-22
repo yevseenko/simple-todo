@@ -8,7 +8,7 @@ class App extends PureComponent {
 
     let TodosComponent;
 
-    if (todos === undefined) {
+    if (todos.length === 0) {
       TodosComponent = <div> Loading... </div>
     } else {
       TodosComponent = todos.map(item => <li key={item.id}>{item.text}</li>)
