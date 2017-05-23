@@ -3,9 +3,14 @@ import React, { PureComponent } from 'react';
 export class TodoForm extends PureComponent {
   render() {
     return (
-      <form onSubmit={ () => {console.log('form submited')}}>
-        <input className="todo-input" type="text" />
-      </form>
+      <div>
+        <form onSubmit={(evt) => {
+          evt.preventDefault();
+          this.props.onUserSubmit(evt.target.children[0].value);
+        }} >
+          <input className="todo-input" type="text" />
+        </form>
+      </div>
     )
   }
 }

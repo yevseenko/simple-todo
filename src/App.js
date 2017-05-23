@@ -13,7 +13,7 @@ class App extends PureComponent {
           <h2>Very simple todolist</h2>
         </div>
         <div className="Todo-App">
-          <TodoForm />
+          <TodoForm onUserSubmit={(val) => this.props.addTodo(val)}/>
           <TodoList todos={todos} />
         </div>
       </div>
@@ -25,4 +25,15 @@ const mapStateToprops = (state) => {
   return state.todos;
 }
 
-export default connect(mapStateToprops)(App);
+const mapActionsToProps = (dispatch) => {
+  return {
+    addTodo(val) {
+      dispatch({
+        type: 'ADD_TODO',
+        payload: val
+      })
+    }
+  }
+}
+
+export default connect(mapStateToprops, mapActionsToProps)(App);
