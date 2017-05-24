@@ -14,7 +14,8 @@ class App extends PureComponent {
         </div>
         <div className="Todo-App">
           <TodoForm onUserSubmit={(value) => this.props.addTodo(value)}
-            onInputChange={(value) => this.props.inputChange(value)}/>
+            onInputChange={(value) => this.props.inputChange(value)}
+            inputClear={() => this.props.inputClear()}/>
           <TodoList todos={todos} />
         </div>
       </div>

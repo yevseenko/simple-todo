@@ -1,9 +1,7 @@
-export function inputValueReducer(state = '', action) {
+export function inputValueReducer(state = 'input new todo here', action) {
   switch (action.type) {
     case 'INPUT_CHANGE':
-      return state = action.payload;
-    case 'FORM_APPLY':
-      return state = '';
+      return action.payload;
     default: return state;
   }
 }
