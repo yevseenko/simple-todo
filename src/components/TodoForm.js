@@ -4,11 +4,12 @@ export class TodoForm extends PureComponent {
   render() {
     return (
       <div>
-        <form onSubmit={(evt) => {
-          evt.preventDefault();
-          this.props.onUserSubmit(evt.target.children[0].value);
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          this.props.onUserSubmit(e.target.children[0].value);
         }} >
-          <input onChange={(e) => this.props.onInputChange(e.target.value)} className="todo-input" type="text" />
+          <input className="todo-input" type="text"
+            onChange={(e) => this.props.onInputChange(e.target.value)} />
         </form>
       </div>
     )

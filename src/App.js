@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { TodoForm, TodoList } from './components'
+import { mapActionsToProps } from './actions/map_actions'
 import './stylesheets/App.css';
 
 class App extends PureComponent {
@@ -15,7 +16,7 @@ class App extends PureComponent {
         <div className="Todo-App">
           <TodoForm onUserSubmit={(value) => this.props.addTodo(value)}
             onInputChange={(value) => this.props.inputChange(value)}
-            inputClear={() => this.props.inputClear()}/>
+            inputClear={() => this.props.inputClear()} />
           <TodoList todos={todos} />
         </div>
       </div>
@@ -24,23 +25,9 @@ class App extends PureComponent {
 }
 
 const mapStateToprops = (state) => {
-  return  { todos: state.todos };
-}
-
-const mapActionsToProps = (dispatch) => {
   return {
-    addTodo(val) {
-      dispatch({
-        type: 'ADD_TODO',
-        payload: val
-      })
-    },
-    inputChange(value) {
-      dispatch({
-        type: 'INPUT_CHANGE',
-        payload: value
-      })
-    }
+    todos: state.todos,
+    inputValue: state.inputValue
   }
 }
 
