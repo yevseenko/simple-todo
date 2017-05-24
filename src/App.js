@@ -13,7 +13,8 @@ class App extends PureComponent {
           <h2>Very simple todolist</h2>
         </div>
         <div className="Todo-App">
-          <TodoForm onUserSubmit={(val) => this.props.addTodo(val)}/>
+          <TodoForm onUserSubmit={(value) => this.props.addTodo(value)}
+            onInputChange={(value) => this.props.inputChange(value)}/>
           <TodoList todos={todos} />
         </div>
       </div>
@@ -22,7 +23,7 @@ class App extends PureComponent {
 }
 
 const mapStateToprops = (state) => {
-  return state.todos;
+  return  { todos: state.todos };
 }
 
 const mapActionsToProps = (dispatch) => {
@@ -31,6 +32,12 @@ const mapActionsToProps = (dispatch) => {
       dispatch({
         type: 'ADD_TODO',
         payload: val
+      })
+    },
+    inputChange(value) {
+      dispatch({
+        type: 'INPUT_CHANGE',
+        payload: value
       })
     }
   }

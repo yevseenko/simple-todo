@@ -1,20 +1,15 @@
-import data from '../data/database';
-
-const initialState = {
-  todos: []
-}
-
-export function todosReducer(state = initialState, action) {
+export function todosReducer(state = [], action) {
   switch (action.type) {
     case 'RECEIVE_DATA':
-      return {
-        todos: action.payload
-      }
+      return action.payload
     case 'ADD_TODO':
-      data.push({
-        text: action.payload,
-        isComplete: false
-      });
+      return [
+        ...state,
+        {
+          text: action.payload,
+          isComplete: false
+        }
+      ]
     default: return state;
   }
 };

@@ -8,7 +8,7 @@ export class TodoForm extends PureComponent {
           evt.preventDefault();
           this.props.onUserSubmit(evt.target.children[0].value);
         }} >
-          <input className="todo-input" type="text" />
+          <input onChange={(e) => this.props.onInputChange(e.target.value)} className="todo-input" type="text" />
         </form>
       </div>
     )

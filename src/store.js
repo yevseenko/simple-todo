@@ -1,44 +1,27 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 import { todosReducer } from './reducers/todos_reducer';
+import { inputValueReducer } from './reducers/input_reducer';
 
 import data from './data/database';
 
 const appReducer = combineReducers({
-  todos: todosReducer
+  todos: todosReducer,
+  inputValue: inputValueReducer
 });
 
 function dataLoadingMiddleware({ getState, dispatch }) {
   return (next) => (action) => {
     if (action.type === 'LOAD_DATA') {
-      console.log('Data receive...')
-      loadData().then(data => {
-        dispatch({ type: 'RECEIVE_DATA', payload: Object.values(data) });
+      data.once('value').then(snap => {
+        dispatch({ type: 'RECEIVE_DATA', payload: Object.values(snap.val()) });
       })
     }
     return next(action);
   }
 }
 
-function addTodoMiddleware({ getState, dispatch }) {
-  return (next) => (action) => {
-    if (action.type === 'ADD_TODO') {
-      console.log('add todo...')
-      loadData().then(data => {
-        dispatch({ type: 'RECEIVE_DATA', payload: Object.values(data) });
-      })
-    }
-    return next(action);
-  }
-}
-
-function loadData() {
-  return new Promise((resolve, reject) => {
-    data.on('value', snap => { resolve(snap.val()) });
-  });
-}
-
-const store = createStore(appReducer, applyMiddleware(dataLoadingMiddleware, addTodoMiddleware));
+const store = createStore(appReducer, applyMiddleware(dataLoadingMiddleware));
 
 window.store = store;
 
