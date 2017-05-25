@@ -12,6 +12,12 @@ export const mapActionsToProps = (dispatch) => {
         type: 'INPUT_CHANGE',
         payload: value
       })
+    },
+
+    inputClear() {
+      dispatch({
+        type: 'INPUT_CLEAR'
+      })
     }
   }
 }

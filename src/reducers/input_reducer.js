@@ -3,7 +3,7 @@ export function inputValueReducer(state = '', action) {
     case 'INPUT_CHANGE':
       return action.payload;
     case 'INPUT_CLEAR':
-      return state = '';
+      return '';
     default: return state;
   }
 }

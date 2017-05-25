@@ -6,7 +6,7 @@ import './stylesheets/App.css';
 
 class App extends PureComponent {
   render() {
-    const { todos } = this.props;
+    const { todos, inputValue } = this.props;
 
     return (
       <div className="App">
@@ -15,8 +15,9 @@ class App extends PureComponent {
         </div>
         <div className="Todo-App">
           <TodoForm onUserSubmit={(value) => this.props.addTodo(value)}
+            inputClear={() => this.props.inputClear()}
             onInputChange={(value) => this.props.inputChange(value)}
-            inputClear={() => this.props.inputClear()} />
+            inputValue={inputValue}/>
           <TodoList todos={todos} />
         </div>
       </div>
