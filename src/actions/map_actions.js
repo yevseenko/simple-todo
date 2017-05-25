@@ -1,9 +1,9 @@
 export const mapActionsToProps = (dispatch) => {
   return {
-    addTodo(val) {
+    addTodo(value) {
       dispatch({
         type: 'ADD_TODO',
-        payload: val
+        payload: value
       })
     },
 
