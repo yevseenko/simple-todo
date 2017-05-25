@@ -24,6 +24,10 @@ ul {
 
 li {
   list-style-type: none;
+  border: 1px solid gray;
+  padding: .3em;
+  border-radius: 4px;
+  margin-top: .3em
 }
 
 .error {
