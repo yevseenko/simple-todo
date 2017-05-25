@@ -9,6 +9,7 @@ export class TodoForm extends PureComponent {
           this.props.onUserSubmit(e.target.children[0].value);
         }} >
           <input className="todo-input" type="text"
+            value={this.props.inputValue}
             onChange={(e) => this.props.onInputChange(e.target.value)} />
         </form>
       </div>
