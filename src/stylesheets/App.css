@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #010E16;
   padding: 5px;
   color: white;
 }
@@ -15,52 +15,97 @@
 }
 
 input {
-  font-size: 20px;
+  padding: .4em;
+  width: 250px;
+  font-size: 18px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 4px;
+  background-color: rgba(0,0,0,0.5);
+  color: rgba(255,255,255,0.7);
+}
+
+input::placeholder {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+input:hover {
+  border: 1px solid rgba(255,255,255,0.6);
 }
 
 ul {
   padding: 0px;
+  color: #99cee0;
 }
 
 li {
+  background: rgba(1,29,40,.5);
+  font-size: 16px;
   list-style-type: none;
-  border: 1px solid gray;
-  padding: .3em;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: .5em;
   border-radius: 4px;
-  margin-top: .3em
 }
 
-.error {
-  color: red;
+li:nth-child(n+2) {
+  margin-top: .3em;
+}
+
+li:hover {
+  background: rgba(1,29,40,.3);
+  border: 1px solid rgba(255,255,255,0.6)
 }
 
 li span.delete-item {
   visibility: hidden;
-}
-
-span.delete-item a {
-  text-decoration: none;
-  color: red;
+  float: right;
+  margin-left: 10px;
 }
 
 li:hover span.delete-item {
   visibility: visible;
 }
 
-.Footer a {
-  padding: 2px;
-  text-decoration: none;
+.close {
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+}
+.close:hover::before, .close:hover::after {
+  background: #1ebcc5;
+}
+.close::before, .close::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  background: #000;
+}
+.close::before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.close::after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
-.Footer a.active {
-  font-weight: bold;
+.close.black::before, .close.black::after {
+  height: 4px;
+  margin-top: -1px;
 }
 
-a:visited {
-  text-decoration: none;
-  color: blue;
-}
-
-.success {
-  color: limegreen;
+.close.rounded::before, .close.rounded::after {
+  border-radius: 2px;
 }

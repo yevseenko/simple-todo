@@ -11,7 +11,7 @@ export class TodoList extends PureComponent {
             {
               this.props.todos.map(item => {
                 return (
-                  <li key={item.id}>{item.text}</li>
+                  <li key={item.id}>{item.text}<span className="close rounded black delete-item"></span></li>
                 )
               })
             }

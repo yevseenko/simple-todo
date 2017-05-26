@@ -11,7 +11,7 @@ class App extends PureComponent {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Very simple todolist</h2>
+          <h3>Very simple todolist</h3>
         </div>
         <div className="Todo-App">
           <TodoForm onUserSubmit={(value) => this.props.addTodo(value)}

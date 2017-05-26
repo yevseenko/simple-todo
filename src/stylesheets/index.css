@@ -1,5 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: monospace;
+  background: url(../images/bg.jpg) #010E16 50% 0 no-repeat;
 }
