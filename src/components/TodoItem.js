@@ -8,7 +8,7 @@ export class TodoItem extends PureComponent {
           <input type="checkbox" id={this.props.id}
             className="todo-checkbox squaredTwo"
             checked={this.props.isComplete}
-            onChange={(id) => this.props.toggleTodo(this.props.id)} />
+            onChange={(id) => this.props.toggleTodo({id: this.props.id, isComplete: this.props.isComplete})} />
           <label htmlFor={this.props.id}></label>
         </span>
 

@@ -22,7 +22,7 @@ export function todosReducer(state = [], action) {
     case 'TOGGLE_TODO_ASYNC':
       console.log('todo is toggled', action.payload);
       return state.map(todo => {
-        if (todo.id !== action.payload) {
+        if (todo.id !== action.payload.id) {
           return todo;
         }
 
