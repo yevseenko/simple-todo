@@ -7,6 +7,21 @@ export const mapActionsToProps = (dispatch) => {
       })
     },
 
+    removeTodo(id) {
+      dispatch({
+        type: 'REMOVE_TODO',
+        payload: id
+      })
+    },
+
+    toggleTodo(id) {
+      console.log(id);
+      dispatch({
+        type: 'TOGGLE_TODO',
+        payload: id
+      })
+    },
+
     inputChange(value) {
       dispatch({
         type: 'INPUT_CHANGE',

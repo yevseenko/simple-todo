@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { TodoItem } from './TodoItem'
 
 export class TodoList extends PureComponent {
   render() {
@@ -11,7 +12,11 @@ export class TodoList extends PureComponent {
             {
               this.props.todos.map(item => {
                 return (
-                  <li key={item.id}>{item.text}<span className="close rounded black delete-item"></span></li>
+                  <TodoItem removeTodo={(id) => this.props.removeTodo(id)}
+                    toggleTodo={(id) => this.props.toggleTodo(id)}
+                    isComplete={item.isComplete}
+                    key={item.id}
+                    {...item} />
                 )
               })
             }

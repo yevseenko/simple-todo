@@ -18,7 +18,9 @@ class App extends PureComponent {
             inputClear={() => this.props.inputClear()}
             onInputChange={(value) => this.props.inputChange(value)}
             inputValue={inputValue}/>
-          <TodoList todos={todos} />
+          <TodoList todos={todos} 
+            removeTodo={(id) => this.props.removeTodo(id)}
+            toggleTodo={(id) => this.props.toggleTodo(id)}/>
         </div>
       </div>
     );

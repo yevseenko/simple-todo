@@ -1,16 +1,19 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
-import { todosReducer } from './reducers/todos_reducer';
-import { inputValueReducer } from './reducers/input_reducer';
-import { dataLoadingMiddleware } from './middleware/data_loading';
-import { addTodoMiddleware } from './middleware/add_todo_middleware';
+import { todosReducer, inputValueReducer } from './reducers';
+import { dataLoadingMiddleware, addTodoMiddleware, removeTodoMiddleware, toggleTodoMiddleware } from './middleware';
 
 const appReducer = combineReducers({
   todos: todosReducer,
   inputValue: inputValueReducer
 });
 
-const store = createStore(appReducer, applyMiddleware(dataLoadingMiddleware, addTodoMiddleware));
+const store = createStore(appReducer, applyMiddleware(
+  dataLoadingMiddleware,
+  addTodoMiddleware,
+  removeTodoMiddleware,
+  toggleTodoMiddleware
+));
 
 window.store = store;
 

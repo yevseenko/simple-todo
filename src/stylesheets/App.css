@@ -14,9 +14,9 @@
   text-align: left;
 }
 
-input {
+.todo-input {
   padding: .4em;
-  width: 250px;
+  width: 275px;
   font-size: 18px;
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: 4px;
@@ -24,12 +24,16 @@ input {
   color: rgba(255,255,255,0.7);
 }
 
-input::placeholder {
+.todo-checkbox {
+  margin-right: .6em;
+}
+
+.todo-input::placeholder {
   font-family: monospace;
   font-size: 14px;
 }
 
-input:hover {
+.todo-input:hover {
   border: 1px solid rgba(255,255,255,0.6);
 }
 
@@ -74,7 +78,7 @@ li:hover span.delete-item {
   overflow: hidden;
 }
 .close:hover::before, .close:hover::after {
-  background: #1ebcc5;
+  background: rgb(255,50,0);
 }
 .close::before, .close::after {
   content: '';
@@ -108,4 +112,45 @@ li:hover span.delete-item {
 
 .close.rounded::before, .close.rounded::after {
   border-radius: 2px;
+}
+
+.squaredThree {
+  width: 15px;
+  position: relative;
+  margin: 20px auto;
+}
+.squaredThree label {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.squaredThree label:after {
+  content: '';
+  width: 6px;
+  height: 4px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  border: 3px solid #fcfff4;
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  opacity: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.squaredThree label:hover::after {
+  opacity: 0.3;
+}
+.squaredThree input[type=checkbox] {
+  visibility: hidden;
+}
+.squaredThree input[type=checkbox]:checked + label:after {
+  opacity: 1;
 }
