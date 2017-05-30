@@ -47,6 +47,12 @@
   color: greenyellow;
 }
 
+.todo-info {
+  margin-top: 10px;
+  color: greenyellow;
+  text-align: center;
+}
+
 ul {
   padding: 0px;
   color: #99cee0;

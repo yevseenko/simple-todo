@@ -1,12 +1,18 @@
 export function todosReducer(state = [], action) {
   switch (action.type) {
     case 'RECEIVE_DATA':
-      let dataArr = [];
-      dataArr.push(
+      if (action.payload === null) {
+        return state;
+      }
+
+      let arr = [];
+
+      arr.push(
         ...Object.keys(action.payload)
           .map(id => ({ id, text: action.payload[id].text, isComplete: action.payload[id].isComplete }))
       );
-      return dataArr;
+
+      return arr;
     case 'ADD_TODO_ASYNC':
       return [
         ...state,

@@ -6,9 +6,7 @@ export function dataLoadingMiddleware({ getState, dispatch }) {
       const data = database.ref('/todos');
 
       data.once('value').then(snap => {
-        if (snap.val()) {
           dispatch({ type: 'RECEIVE_DATA', payload: snap.val() })
-        }
       })
     }
     return next(action);
