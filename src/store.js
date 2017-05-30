@@ -1,11 +1,12 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
-import { todosReducer, inputValueReducer } from './reducers';
+import { todosReducer, inputValueReducer, visibilityFilterReducer } from './reducers';
 import { dataLoadingMiddleware, addTodoMiddleware, removeTodoMiddleware, toggleTodoMiddleware } from './middleware';
 
 const appReducer = combineReducers({
   todos: todosReducer,
-  inputValue: inputValueReducer
+  inputValue: inputValueReducer,
+  visibilityFilter: visibilityFilterReducer
 });
 
 const store = createStore(appReducer, applyMiddleware(

@@ -17,7 +17,7 @@ export function addTodoMiddleware({ getState, dispatch }) {
 
       todosRef.update(updates);
 
-      dispatch({ type: 'ADD_TODO_ASYNC', payload: Object.assign({}, todoData, { id: newTodoKey }) });
+      dispatch({ type: 'ADD_TODO_ASYNC', payload: {...todoData, id: newTodoKey} });
     }
     return next(action);
   }

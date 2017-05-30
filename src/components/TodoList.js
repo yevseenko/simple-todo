@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import { TodoItem } from './TodoItem'
+import { TodoItem } from './TodoItem';
+import { FilterLink } from './FilterLink';
 
 export class TodoList extends PureComponent {
   render() {
@@ -21,6 +22,17 @@ export class TodoList extends PureComponent {
               })
             }
           </ul>
+          <div className="todo-links">
+            <p>
+              Show:
+              {' '}
+              <FilterLink filter='SHOW_ALL' setFilter={(filter) => this.props.setFilter(filter)}>All</FilterLink>
+              {' '}
+              <FilterLink filter='SHOW_ACTIVE' setFilter={(filter) => this.props.setFilter(filter)}>Active</FilterLink>
+              {' '}
+              <FilterLink filter='SHOW_COMPLETED' setFilter={(filter) => this.props.setFilter(filter)}>Completed</FilterLink>
+            </p>
+          </div>
         </div>
       )
     }
