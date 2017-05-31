@@ -7,7 +7,7 @@ export class TodoList extends PureComponent {
     const visibleTodos = this.props.getVisibleTodos(
       this.props.todos,
       this.props.visibilityFilter
-      )
+    );
 
     if (!this.props.todos.length) {
       return <div className="todo-info"> Nothing to view... </div>
