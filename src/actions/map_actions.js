@@ -22,6 +22,22 @@ export const mapActionsToProps = (dispatch) => {
 
     setFilter(filter) {
       dispatch({ type: 'SET_VISIBILITY_FILTER', filter })
+    },
+
+    getVisibleTodos(todos, filter) {
+      switch (filter) {
+        case 'SHOW_ALL':
+          return todos;
+        case 'SHOW_COMPLETED':
+          return todos.filter(
+            t => t.isComplete
+          );
+        case 'SHOW_ACTIVE':
+          return todos.filter(
+            t => !t.isComplete
+          );
+        default: return todos;
+      }
     }
   }
 }
