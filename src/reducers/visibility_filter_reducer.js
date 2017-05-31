@@ -1,4 +1,4 @@
-export function visibilityFilterReducer(state = 'SHOW_ALL', action) {
+export function visibilityFilterReducer(state = 'SHOW_ACTIVE', action) {
   switch (action.type) {
     case 'SET_VISIBILITY_FILTER': 
       return action.filter;
