@@ -6,8 +6,6 @@ import './stylesheets/App.css';
 
 class App extends PureComponent {
   render() {
-    const { todos, inputValue, visibilityFilter } = this.props;
-
     return (
       <div className="App">
         <div className="App-header">
@@ -17,8 +15,8 @@ class App extends PureComponent {
           <TodoForm onUserSubmit={(value) => this.props.addTodo(value)}
             inputClear={() => this.props.inputClear()}
             onInputChange={(value) => this.props.inputChange(value)}
-            inputValue={inputValue} />
-          <TodoList todos={todos} visibilityFilter={visibilityFilter}
+            inputValue={this.props.inputValue} />
+          <TodoList todos={this.props.todos} visibilityFilter={this.props.visibilityFilter}
             getVisibleTodos={(todos, filter) => this.props.getVisibleTodos(todos, filter)}
             removeTodo={(id) => this.props.removeTodo(id)}
             toggleTodo={(id) => this.props.toggleTodo(id)}
