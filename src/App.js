@@ -6,7 +6,7 @@ import './stylesheets/App.css';
 
 class App extends PureComponent {
   render() {
-    const { todos, inputValue, visibilityFilter, getVisibleTodos } = this.props;
+    const { todos, inputValue, visibilityFilter } = this.props;
 
     return (
       <div className="App">
@@ -19,7 +19,7 @@ class App extends PureComponent {
             onInputChange={(value) => this.props.inputChange(value)}
             inputValue={inputValue} />
           <TodoList todos={todos} visibilityFilter={visibilityFilter}
-            getVisibleTodos={(todos, filter) => getVisibleTodos(todos, filter)}
+            getVisibleTodos={(todos, filter) => this.props.getVisibleTodos(todos, filter)}
             removeTodo={(id) => this.props.removeTodo(id)}
             toggleTodo={(id) => this.props.toggleTodo(id)}
             setFilter={(filter) => this.props.setFilter(filter)} />
