@@ -3,10 +3,14 @@ import database from '../data/database';
 export function dataLoadingMiddleware({ getState, dispatch }) {
   return (next) => (action) => {
     if (action.type === 'LOAD_DATA') {
-      const data = database.ref('/todos');
+      const databaseRef = database.ref();
 
-      data.once('value').then(snap => {
-          dispatch({ type: 'RECEIVE_DATA', payload: snap.val() })
+      databaseRef.on('value', (snap) => {
+          if (!snap.exists()) {
+            dispatch({ type: 'RECEIVE_DATA', payload: {} })
+          }
+
+          dispatch({ type: 'RECEIVE_DATA', payload: snap.child('/todos').val() })
       })
     }
     return next(action);

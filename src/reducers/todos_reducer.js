@@ -13,11 +13,11 @@ export function todosReducer(state = [], action) {
       );
 
       return arr;
-    case 'ADD_TODO_ASYNC':
-      return [
-        ...state,
-        action.payload
-      ]
+    // case 'ADD_TODO_ASYNC':
+    //   return [
+    //     ...state,
+    //     action.payload
+    //   ]
     case 'REMOVE_TODO_ASYNC':
       console.log('todo has been removed', action.payload);
       const removeIndex = state.findIndex(item => item.id === action.payload)
@@ -25,18 +25,18 @@ export function todosReducer(state = [], action) {
         ...state.slice(0, removeIndex),
         ...state.slice(removeIndex + 1)
       ]
-    case 'TOGGLE_TODO_ASYNC':
-      console.log('todo is toggled', action.payload);
-      return state.map(todo => {
-        if (todo.id !== action.payload.id) {
-          return todo;
-        }
+    // case 'TOGGLE_TODO_ASYNC':
+    //   console.log('todo is toggled', action.payload);
+    //   return state.map(todo => {
+    //     if (todo.id !== action.payload.id) {
+    //       return todo;
+    //     }
 
-        return {
-          ...todo,
-          isComplete: !todo.isComplete
-        }
-      });
+    //     return {
+    //       ...todo,
+    //       isComplete: !todo.isComplete
+    //     }
+    //   });
     default: return state;
   }
 }
