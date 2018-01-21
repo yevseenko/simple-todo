@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { TodoForm, TodoList, Header } from './components'
-import { mapActionsToProps } from './actions/map_actions'
+import { TodoForm, TodoList, Header } from './components';
+import { mapActionsToProps } from './actions/map_actions';
 import './stylesheets/App.css';
 
 import firebase from 'firebase';
