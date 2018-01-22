@@ -22,7 +22,7 @@ class App extends PureComponent {
             removeTodo={(id) => this.props.removeTodo(id)}
             toggleTodo={(id) => this.props.toggleTodo(id)}
             setFilter={(filter) => this.props.setFilter(filter)} />
-          <div><button onClick={() => {
+          <div><button className="login-button" onClick={() => {
             firebase.auth().signInWithPopup(provider).then(function (result) {
               // This gives you a Google Access Token. You can use it to access the Google API.
               var token = result.credential.accessToken;
