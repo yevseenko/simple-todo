@@ -178,6 +178,7 @@ li:hover span.delete-item {
   padding: .5em;
   border-radius: 4px;
   margin: 0 30.5%;
+  color: cornflowerblue;
 }
 
 .login-button:hover {
