@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 export class TodoItem extends PureComponent {
   render() {
     return (
-      <li>
+      <li className={this.props.isComplete ? 'completed' : '' }>
         <span className="squaredThree">
           <input type="checkbox" id={this.props.id}
             className="todo-checkbox squaredTwo"
